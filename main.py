@@ -22,9 +22,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-BOT_TOKEN = "7412494384:AAHj83iUAZdq3kjMBURF3hglOHX3j1rf7go"  # Replace with your bot token
-API_ID = "26525481"  # Replace with your API ID
-API_HASH = "f1cc42e92c80367009171e28d04ed2ee"  # Replace with your API hash
+BOT_TOKEN = "7820687980:AAG_uLBUYPutQPdllP9xiCMI_ufcX8BySkY"  # Replace with your bot token
+API_ID = "25842851"  # Replace with your API ID
+API_HASH = "4fcbc414da34a43d86eca15e1235d2ae"  # Replace with your API hash
 DATA_FILE = "user_data.json"
 
 async def process_specific_groups(update: Update, context: ContextTypes.DEFAULT_TYPE):
