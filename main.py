@@ -997,9 +997,10 @@ async def process_verification_code(update: Update, context: ContextTypes.DEFAUL
         user_session['session_string'] = final_session
         user_session['login_state'] = 'idle'
         user_session['last_activity'] = datetime.now().isoformat()
-        bot_manager.save_user_data()
+        bot_manager.save_user_data()  # Save session string to disk immediately
         await client2.disconnect()
-        del bot_manager.temp_login[user_id]
+        if user_id in bot_manager.temp_login:
+            del bot_manager.temp_login[user_id]
         await update.message.reply_text(
             f"🎉 **Login Successful!**\n\n"
             f"👤 **Account**: {user_info.first_name}"
@@ -1050,9 +1051,10 @@ async def process_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_session['session_string'] = final_session
         user_session['login_state'] = 'idle'
         user_session['last_activity'] = datetime.now().isoformat()
-        bot_manager.save_user_data()
+        bot_manager.save_user_data()  # Save session string to disk immediately
         await client.disconnect()
-        del bot_manager.temp_login[user_id]
+        if user_id in bot_manager.temp_login:
+            del bot_manager.temp_login[user_id]
         await update.message.reply_text(
             f"🎉 **Login Successful!**\n\n"
             f"👤 **Account**: {user_info.first_name}"
